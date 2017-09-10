@@ -78,11 +78,38 @@ var nameBuilder = function nameBuilder() {
 };
 nameBuilder();
 
-var x = 10;
-if (x) {
-	var _x3 = 4;
+window.onload = function () {
+	func1();
+};
+var func1 = function func1() {
+	var _loop = function _loop(i) {
+		div = document.createElement('div');
+
+		div.onclick = function () {
+			alert("You clicked on the div #" + i);
+		};
+		document.getElementsByTagName('section')[0].appendChild(div);
+	};
+
+	for (var i = 0; i < 45; i++) {
+		var div;
+
+		_loop(i);
+	}
+};
+
+function createEmail(firstName, purchasePrice) {
+	var shipping = 5.95;
+	console.log("\n\t\t\t\tHi " + firstName + ", thanks for buying from us\n\t\t\t\tTotal : $" + purchasePrice + "\n\t\t\t\tshipping price is $" + shipping + "\n\t\t\t\tGrand Total : $" + (purchasePrice + shipping) + ";\n\t\t\t");
 }
-console.log(x);
+createEmail("Ravikiran", 34);
+
+var cats = ["cat0", "cat1", "cat2", "cat3", "cat4"];
+var dogs = ["dog0", "dog1", "dog2", "dog3", "dog4"];
+
+var animals = ["whales", "elephants"].concat(cats, dogs);
+
+console.log(animals);
 
 /***/ })
 /******/ ]);
