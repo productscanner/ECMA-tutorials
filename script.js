@@ -33,3 +33,10 @@ var nameBuilder = function(firstName="Henry", lastName = "Doe"){
 		var animals = ["whales", "elephants", ...cats, ...dogs];
 		
 		console.log(animals);
+		
+		function haveFun(activityName = "Jogging", time = 30){
+				console.log(`today I will go for ${activityName} for ${time} minutes`);
+		};
+		
+		haveFun();
+		haveFun("hiking", 120);
