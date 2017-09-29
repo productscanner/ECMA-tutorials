@@ -111,5 +111,150 @@ var animals = ["whales", "elephants"].concat(cats, dogs);
 
 console.log(animals);
 
+function haveFun() {
+	var activityName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Jogging";
+	var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
+
+	console.log("today I will go for " + activityName + " for " + time + " minutes");
+};
+
+haveFun();
+haveFun("hiking", 120);
+
+console.log("---------------------------------------------------------");
+var chapter = "object literals";
+console.log("chapter -  Learning " + chapter);
+
+var cat = {
+	meow: function meow(times) {
+		console.log("meow".repeat(times));
+	},
+	purr: function purr(times) {
+		console.log("purr".repeat(times));
+	},
+	snore: function snore(times) {
+		console.log("snore".repeat(times));
+	}
+};
+
+cat.meow(3);
+cat.purr(5);
+cat.snore(4);
+
+console.log("---------------------------------------------------------");
+console.log("---------------------------------------------------------");
+chapter = "Arrow functions";
+console.log("chapter -  Learning " + chapter);
+console.log("Normal function implementation");
+var studentsList = function studentsList(students) {
+	console.log(students);
+};
+
+studentsList(["Joe", "Cindy", "Jeanne"]);
+console.log("*************************************");
+console.log("Arrow function implementation");
+
+var studentsListArrow = function studentsListArrow(studentList) {
+	return console.log(studentList);
+};
+
+studentsListArrow(["Joe", "Cindy", "Jeanne"]);
+
+console.log("---------------------------------------------------------");
+console.log("---------------------------------------------------------");
+
+chapter = "Arrow functions and the 'this' scope";
+console.log("chapter -  Learning " + chapter);
+console.log("Normal function implementation");
+var person = {
+	name: "Doug",
+	actions: ['Bike', 'Hike', 'Ski', 'Surf'],
+	printActions: function printActions() {
+
+		this.actions.forEach(function (action) {
+			var str = this.name + " likes " + action;
+			console.log(str);
+		}.bind(this));
+	}
+};
+person.printActions();
+
+console.log("*************************************");
+console.log("Arrow function implementation");
+
+var personArrow = {
+	name: "Doug",
+	actions: ['Bike', 'Hike', 'Ski', 'Surf'],
+	printActions: function printActions() {
+		var _this = this;
+
+		this.actions.forEach(function (action) {
+			var str = _this.name + " likes " + action;
+			console.log(str);
+		});
+	}
+};
+
+personArrow.printActions();
+
+console.log("---------------------------------------------------------");
+console.log("---------------------------------------------------------");
+
+chapter = "Destructuring assignments";
+console.log("chapter -  Learning " + chapter);
+
+var cities = ['Spokane', 'Boston', 'Los Angeles', 'Seattle', 'Portland'];
+
+console.log(cities[0]);
+console.log(cities[3]);
+
+console.log("destructuring array elements");
+var _ref = ['Spokane', 'Boston', 'Los Angeles', 'Seattle', 'Portland'],
+    first = _ref[0],
+    fourth = _ref[3];
+
+
+console.log(first);
+console.log(fourth);
+
+console.log("normal destructuring of objects");
+var sandwich = {
+	title: "Reuben",
+	price: 7,
+	description: "Cleveland's favorite sandwich",
+	ingredients: ['bread', 'corned beef', 'dressing', 'saurekruft', 'cheese']
+};
+
+console.log(sandwich.title);
+
+console.log("ES6 destructuring of objects");
+var _title$price$descript = {
+	title: "Reuben",
+	price: 7,
+	description: "Cleveland's favorite sandwich",
+	ingredients: ['bread', 'corned beef', 'dressing', 'saurekruft', 'cheese']
+},
+    title = _title$price$descript.title,
+    description = _title$price$descript.description;
+
+
+console.log(title, description);
+
+var vacation = {
+	destination: "chile",
+	travelers: 2,
+	activity: "skiing",
+	cost: 4000
+};
+
+function vacationMarketing(_ref2) {
+	var destination = _ref2.destination,
+	    activity = _ref2.activity;
+
+	return "come to " + destination + " and do some " + activity;
+}
+
+console.log(vacationMarketing(vacation));
+
 /***/ })
 /******/ ]);
